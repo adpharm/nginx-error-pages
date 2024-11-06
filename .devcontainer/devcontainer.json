@@ -1,0 +1,66 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+  "name": "Ubuntu",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  // "build": {
+  //   // Path is relative to the devcontainer.json file.
+  //   "dockerfile": "Dockerfile"
+  // },
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    "ghcr.io/devcontainers/features/node": {
+      "version": "lts",
+      "nvmVersion": "latest"
+    },
+    // "ghcr.io/devcontainers/features/aws-cli:1": {},
+    "ghcr.io/eitsupi/devcontainer-features/go-task:1": {}
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "bash -i ./.devcontainer/scripts/post-create.sh",
+  // "postCreateCommand": "bash -i",
+  "postCreateCommand": "echo 'eval \"$(task --completion bash)\"' >> ~/.profile",
+
+  // Use 'postStartCommand' to run commands after the container is started.
+  // "postStartCommand": "bash -i -c 'source ~/.bashrc'",
+
+  // "userEnvProbe": "loginInteractiveShell",
+
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "yoavbls.pretty-ts-errors",
+        "eamodio.gitlens",
+        "bradlc.vscode-tailwindcss",
+        "IronGeek.vscode-env",
+        "ms-azuretools.vscode-docker",
+        "GitHub.copilot",
+        "foxundermoon.shell-format",
+        "coolbear.systemd-unit-file",
+        "yzhang.markdown-all-in-one",
+        "astro-build.astro-vscode"
+      ]
+    }
+  }
+
+  // "mounts": [
+  //   "source=${localEnv:HOME}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached",
+  //   // ^^^ AWS credentials
+  //   "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+  //   // ^^^ SSH keys
+  // ]
+
+  // "workspaceFolder": "${localWorkspaceFolder}",
+  // "workspaceMount": "source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind"
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}
